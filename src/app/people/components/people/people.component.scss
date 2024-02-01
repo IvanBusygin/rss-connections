@@ -1,0 +1,22 @@
+:host {
+  flex: 1;
+  padding: 0 2%;
+  width: 45%;
+}
+
+mat-card-header {
+  text-align: center;
+  margin: auto;
+}
+
+mat-selection-list {
+  overflow-x: auto;
+  max-height: calc(100vh - 230px);
+}
+
+.btns {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

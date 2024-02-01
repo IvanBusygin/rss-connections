@@ -1,0 +1,40 @@
+<div class="dialog">
+  <div class="dialog__btns">
+    <a
+      mat-raised-button
+      routerLink="/"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </a>
+
+    <app-button-countdown
+      [title]="'Refresh Dialog'"
+      (clickEvent)="refreshData()"
+      [updatedAt$]="updatedAt$"
+    />
+
+    @if (currentGroupIsMy$ | async) {
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="deleteModal()"
+      >
+        <mat-icon>delete</mat-icon>
+        Delete Group
+      </button>
+    }
+  </div>
+
+  @if (groupName$ | async) {
+    <mat-card class="dialog__title">
+      <mat-card-title> {{ groupName$ | async }}</mat-card-title>
+    </mat-card>
+
+    <div class="dialog__messages">
+      <app-messages [messages]="groupsDialog$ | async" />
+
+      <app-send-message-dialog />
+    </div>
+  }
+</div>

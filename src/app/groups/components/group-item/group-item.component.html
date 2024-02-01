@@ -1,0 +1,14 @@
+<div class="item">
+  <mat-list-item (click)="onClick()">
+    <span>{{ item.name }}</span>
+  </mat-list-item>
+  @if (isOwnGroup) {
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="openModal()"
+    >
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  }
+</div>

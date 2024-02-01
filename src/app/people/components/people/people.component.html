@@ -1,0 +1,26 @@
+<div class="people">
+  <div class="btns">
+    <app-button-countdown
+      [title]="'Refresh People'"
+      (clickEvent)="refreshData()"
+      [updatedAt$]="updatedAt$"
+    />
+  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> People </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-selection-list>
+        @for (item of peopleList$ | async; track item.uid) {
+          <app-people-item
+            [item]="item"
+            [companions]="conversationsList$ | async"
+          />
+        }
+      </mat-selection-list>
+    </mat-card-content>
+  </mat-card>
+</div>

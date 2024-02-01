@@ -1,0 +1,17 @@
+:host {
+  flex: 1;
+}
+
+.message-list {
+  overflow-x: auto;
+  max-height: calc(100vh - 290px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.own-message {
+  align-self: flex-end;
+}
+

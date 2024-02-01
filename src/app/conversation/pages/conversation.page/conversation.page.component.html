@@ -1,0 +1,38 @@
+<div class="conversation">
+  <div class="conversation__btns">
+    <a
+      mat-raised-button
+      routerLink="/"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </a>
+
+    <app-button-countdown
+      [title]="'Refresh Dialog'"
+      (clickEvent)="refreshData()"
+      [updatedAt$]="updatedAt$"
+    />
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="deleteModal()"
+    >
+      <mat-icon>delete</mat-icon>
+      Delete Conversation
+    </button>
+  </div>
+
+  @if (peopleName$ | async) {
+    <mat-card class="conversation__title">
+      <mat-card-title> {{ peopleName$ | async }}</mat-card-title>
+    </mat-card>
+
+    <div class="conversation__messages">
+      <app-messages [messages]="conversationMessage$ | async" />
+
+      <app-send-message-conversation />
+    </div>
+  }
+</div>

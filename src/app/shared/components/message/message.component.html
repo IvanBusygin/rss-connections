@@ -1,0 +1,9 @@
+<mat-card [class]="{ 'own-message': isOwn }">
+  <mat-card-content>
+    <p>{{ message?.createdAt | date: 'medium' }}</p>
+    <p>
+      <strong>{{ (authorName$ | async) ?? 'Me' }}</strong>
+    </p>
+    <p class="message">{{ message?.message }}</p>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,11 @@
+<button
+  mat-raised-button
+  matBadgeColor="warn"
+  (click)="onClick()"
+  [matBadge]="timeLef$ | async"
+  [matBadgeHidden]="(timeLef$ | async)! <= 0"
+  [disabled]="(timeLef$ | async)! > 0"
+>
+  <mat-icon>refresh</mat-icon>
+  {{ title }}
+</button>

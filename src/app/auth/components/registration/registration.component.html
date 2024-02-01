@@ -1,0 +1,85 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="regForm"
+>
+  <mat-form-field class="mat">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      formControlName="name"
+    />
+    <mat-error>
+      @if (name?.hasError('required')) {
+        Please enter your name.
+      }
+      @if (name?.hasError('maxlength')) {
+        The maximum length is 40 characters.
+      }
+      @if (name?.hasError('wrongLetters')) {
+        Allowed only letters or spaces.
+      }
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mat">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+    />
+    <mat-error>
+      @if (email?.hasError('required')) {
+        Please enter your email
+      }
+      @if (email?.hasError('email')) {
+        Enter the correct email address
+      }
+      @if (email?.hasError('emailTaken')) {
+        Enter a new email address
+      }
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mat">
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+    />
+    <mat-error>
+      @if (password?.hasError('required')) {
+        Please enter a password
+      }
+      {{ password?.getError('invalidPassword') }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mat">
+    <mat-label>Confirm password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="confirmPassword"
+    />
+    <mat-error>
+      @if (confirmPassword?.hasError('required')) {
+        Please confirm the password.
+      }
+      @if (confirmPassword?.hasError('mismatchedPasswords')) {
+        Passwords don't match
+      }
+    </mat-error>
+  </mat-form-field>
+
+  <div class="">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="regForm.invalid || (isSubmitDisabled$ | async)"
+    >
+      Submit
+    </button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="">
+  <div
+    class="message-list"
+    #scrollContainer
+  >
+    @for (message of messages; track message.createdAt) {
+      <app-message
+        [message]="message"
+        [ngClass]="{ 'own-message': message.authorID === myID }"
+        [isOwn]="message.authorID === myID"
+      />
+    }
+  </div>
+</div>

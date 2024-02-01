@@ -1,0 +1,48 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="loginForm"
+>
+  <mat-form-field class="mat">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+    />
+    <mat-error>
+      @if (email?.hasError('required')) {
+        Please enter your email
+      }
+      @if (email?.hasError('email')) {
+        Enter the correct email address
+      }
+      @if (email?.hasError('emailTaken')) {
+        Enter a new email address
+      }
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mat">
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+    />
+    <mat-error>
+      @if (password?.hasError('required')) {
+        Please enter a password
+      }
+    </mat-error>
+  </mat-form-field>
+
+  <div class="">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid || (isSubmitButtonDisabled$ | async)"
+    >
+      Submit
+    </button>
+  </div>
+</form>

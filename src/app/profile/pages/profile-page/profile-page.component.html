@@ -1,0 +1,13 @@
+<div class="profile">
+  <button
+    mat-raised-button
+    color="accent"
+    class="logout-btn"
+    (click)="logout()"
+    [disabled]="isLoading$ | async"
+  >
+    Logout
+  </button>
+
+  <app-profile [userProfile]="userProfile$ | async" />
+</div>

@@ -1,0 +1,21 @@
+<form
+  (ngSubmit)="submit()"
+  [formGroup]="form"
+>
+  <mat-form-field class="form-field">
+    <textarea
+      formControlName="msg"
+      rows="2"
+      matInput
+      [errorStateMatcher]="customErrorStateMatcher"
+    ></textarea>
+  </mat-form-field>
+  <button
+    type="submit"
+    mat-fab
+    color="primary"
+    [disabled]="form.invalid"
+  >
+    <mat-icon>send</mat-icon>
+  </button>
+</form>

@@ -1,0 +1,27 @@
+@if (profileIsLoading$ | async) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+} @else if (userProfile) {
+  <mat-card class="user-profile-container">
+    <mat-card-header>
+      <mat-card-title>User Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <strong>User Name:</strong>
+        <app-editable-profile-name-field
+          [textValue]="userProfile.name"
+          (submitEdit)="onSubmitEdit($event)"
+        />
+      </div>
+      <p><strong>User ID:</strong> {{ userProfile.uid }}</p>
+      <p><strong>Email:</strong> {{ userProfile.email }}</p>
+      <p><strong>Profile Creation Time:</strong> {{ userProfile.createdAt | date: 'medium' }}</p>
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <mat-card class="no-data">
+    <mat-card-header>
+      <mat-card-title> User profile data has not been uploaded </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+}

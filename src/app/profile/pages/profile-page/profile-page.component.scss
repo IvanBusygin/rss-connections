@@ -1,0 +1,10 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logout-btn {
+  align-self: flex-end;
+  margin: 1rem 3rem;
+}

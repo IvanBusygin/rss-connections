@@ -1,0 +1,30 @@
+.user-profile-container {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-header {
+  text-align: center;
+  margin: 0 auto 1rem;
+}
+
+.no-data {
+  max-width: 520px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  & mat-card-header {
+    color: red;
+
+  }
+}
+
+mat-progress-bar {
+  max-width: 700px;
+  margin: auto;
+}

@@ -1,0 +1,25 @@
+<div class="not-found-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>404</mat-card-title>
+      <mat-card-subtitle>Not found</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        The page:
+        <span class="err-msg">{{ message }}</span>
+        was not found
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/']"
+        >Go back to the main page
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
